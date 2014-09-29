@@ -25,7 +25,6 @@
 #import "FBDynamicFrameworkLoader.h"
 #import "FBSettings+Internal.h"
 
-//#import <AdSupport/AdSupport.h>
 #include <mach-o/dyld.h>
 #include <sys/time.h>
 
@@ -281,31 +280,10 @@ static const NSString *kAppSettingsFieldLoginTooltipContent = @"gdpv4_nux_conten
 }
 
 + (NSString *)advertiserID {
-    /*
-    NSString *advertiserID = nil;
-    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        advertiserID = [[manager advertisingIdentifier] UUIDString];
-    }
-    */
     return @"";
 }
 
 + (FBAdvertisingTrackingStatus)advertisingTrackingStatus {
-    /*
-    if ([FBSettings restrictedTreatment] == FBRestrictedTreatmentYES) {
-        return AdvertisingTrackingDisallowed;
-    }
-    FBAdvertisingTrackingStatus status = AdvertisingTrackingUnspecified;
-    Class ASIdentifierManagerClass = [FBDynamicFrameworkLoader loadClass:@"ASIdentifierManager" withFramework:@"AdSupport"];
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        if (manager) {
-            status = [manager isAdvertisingTrackingEnabled] ? AdvertisingTrackingAllowed : AdvertisingTrackingDisallowed;
-        }
-    }
-    */
     return AdvertisingTrackingDisallowed;
 }
 
