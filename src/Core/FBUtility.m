@@ -6,7 +6,6 @@
  * You may obtain a copy of the License at
  *
  *    http://www.apache.org/licenses/LICENSE-2.0
-
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,6 +26,7 @@
 #import "FBDynamicFrameworkLoader.h"
 #import "FBSettings+Internal.h"
 
+#import <AdSupport/AdSupport.h>
 #include <mach-o/dyld.h>
 #include <sys/time.h>
 
@@ -316,10 +316,6 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
     return [[UIPasteboard pasteboardWithName:@"fb_app_attribution" create:NO] string];
 }
 
-<<<<<<< HEAD
-+ (NSString *)advertiserID {
-    return @"";
-=======
 + (NSString *)advertiserOrAnonymousID:(BOOL)accessAdvertisingID {
     
     NSString *result = nil;
@@ -378,14 +374,10 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
     NSDictionary *results = [FBUtility simpleJSONDecode:content];
     [content release];
     return [results objectForKey:FBPersistedAnonymousIDKey];
->>>>>>> upstream/master
 }
 
 
 + (FBAdvertisingTrackingStatus)advertisingTrackingStatus {
-<<<<<<< HEAD
-    return AdvertisingTrackingDisallowed;
-=======
     if ([FBSettings restrictedTreatment] == FBRestrictedTreatmentYES) {
         return AdvertisingTrackingDisallowed;
     }
@@ -405,7 +397,6 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
     });
 
     return status;
->>>>>>> upstream/master
 }
 
 + (NSMutableDictionary<FBGraphObject> *)activityParametersDictionaryForEvent:(NSString *)eventCategory
